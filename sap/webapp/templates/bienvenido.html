@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Bienvenido al sistema de administración de Personas (SAP) NFP</h1>
+<div>
+    <ul>
+        {% for persona in personas %}
+        <li>
+            <b>Persona {{persona.id}}:</b> {{persona.nombre}} {{persona.apellido}}
+            <a href="detalle_persona/{{persona.id}}">Ver</a>
+            <a href="editar_persona/{{persona.id}}">Editar</a>
+            <a href="eliminar_persona/{{persona.id}}">Eliminar</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <p><strong>Número de Personas:</strong> {{num_personas}}</p>
+    <a href="nueva_persona">Crear Persona</a>
+</div>
+</body>
+</html>
